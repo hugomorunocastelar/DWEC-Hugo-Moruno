@@ -1,4 +1,4 @@
-const MAXNUMBER = 1000;
+const MAXNUMBER = 1000;                                                 
 const NUMEROSECRETO = parseInt(MAXNUMBER*Math.random());
 const prompt = require('prompt-sync')();
 
@@ -12,12 +12,12 @@ do
     console.log(numeroDeIntentos);
     console.log(numeroencontrado);
     entradaDeNumero = prompt('¿Qué número crees que es el ganador? (Entre el 0 y el 1000): ');
-    if (entradaDeNumero == 'exit')
+    if (entradaDeNumero == 'exit')      //Cierra la aplicación
         window.close();
-    if (parseInt(entradaDeNumero))
-        {
-        if (entradaDeNumero >= 0 && entradaDeNumero <= 1000)
-            if (entradaDeNumero == NUMEROSECRETO)
+    if (parseInt(entradaDeNumero))      //Comprueba si el texto introducido es un número
+        { 
+        if (entradaDeNumero >= 0 && entradaDeNumero <= 1000)  //Comprueba que el número está en el arco especificado
+            if (entradaDeNumero == NUMEROSECRETO)             //
             {
                 console.log("ENHORABUENA!")
                 numeroencontrado = true;
