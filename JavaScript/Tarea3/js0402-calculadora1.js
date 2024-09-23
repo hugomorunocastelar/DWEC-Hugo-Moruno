@@ -2,7 +2,7 @@
 const prompt = require('prompt-sync')();
 
 const FORMATO_OPERACION = /^\s*\d+\s*([+\-*/%^])\s*\d+\s*$/;
-const FORMATO_UN_OPERADOR = /^\d+!$/;
+const FORMATO_FACTORIAL = /^\d+!$/;
 
 //INICIO DEL PROGRAMA {main}
 
@@ -16,6 +16,7 @@ do
     if (opcion != 'exit')
     {
         var resultado = identificarOperacion(opcion);
+        acumulador = parseFloat(resultado);
         console.log(resultado);
     }
     else 
@@ -81,11 +82,26 @@ function identificarOperacion(operacion)
                 return Math.pow(operando1, operando2);
         }
     }
-    else if (FORMATO_UN_OPERADOR.test(operacion))
+    else if (FORMATO_FACTORIAL.test(operacion))
     {
         var valores = operacion.split('!');
         var operando = parseInt(valores[0]);
         return (factorial(operando));
+    }
+    else if(operacion.trim() == 'M')
+    {
+        memoria = acumulador;
+        return memoria; 
+    }
+    else if(operacion.trim() == 'R')
+    {
+        acumulador = memoria;
+        return acumulador;
+    }
+    else if(operacion.trim() == 'B')
+    {
+        acumulador = 0;
+        memoria = 0;
     }
     else 
     {
