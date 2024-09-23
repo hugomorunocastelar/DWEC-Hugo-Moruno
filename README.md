@@ -14,16 +14,16 @@ Hugo Moruno Parra
 
 ### Práctica 1 (Adivina el número)  
   
-Carpeta - [Tarea 1](Tarea1/)
+Carpeta - [Tarea 1](JavaScript/Tarea1/)
   
 ### Práctica 2 (Adivina, lista de compra y Fútbol)  
   
-Carpeta - [Tarea 2](Tarea2/)
+Carpeta - [Tarea 2](JavaScript/Tarea2/)
   
 ### Práctica 3 (Calculadora 1)  
   
-Carpeta - [Tarea 3](Tarea3/)
+Carpeta - [Tarea 3](JavaScript/Tarea3/)
   
 ### Práctica 4 (Cuenta)  
   
-Carpeta - [Tarea 4](Tarea4/)
+Carpeta - [Tarea 4](JavaScript/Tarea4/)
