@@ -4,8 +4,8 @@ let cuadrado = document.getElementById("cuadrado");
 
 square.addEventListener("click" , giraCuadrado);
 
-async function giraCuadrado() {
-
+async function giraCuadrado() 
+{
     cuadrado.animate(
         [
             { transform: "rotate(0) scale(1)" },
