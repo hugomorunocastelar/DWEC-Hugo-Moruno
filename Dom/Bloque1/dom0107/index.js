@@ -28,21 +28,22 @@ window.addEventListener('load', (e) => {
         row.insertCell(1).innerHTML = OBJ_COLOR.value;
         row.insertCell(2).innerHTML = 
         "<button type='button' name='eliminarRow' id='eliminarRow'>Eliminar</button>";
+        botonesEliminar();
+    });
+
+    BTNS_ELIMINAR.forEach((btnElim) => {
+        btnElim.addEventListener('click', () =>{
+            OBJ_TABLA.deleteRow(btnElim.parentNode.parentNode.rowIndex);
+        });
+    });
         
-        BTNS_ELIMINAR.forEach((btnElim) => {
-        btnElim.addEventListener('click', (row) =>{
-                console.log(row.target + " - " + btnElim.pos); 
-
-                var botones = Array.from(BTNS_ELIMINAR);
-
-                var elemento = botones.find((e) => {
-                    e.value === btnElim;
-                })
-
-                var posicion = botones.indexOf(elemento);
-
-                OBJ_TABLA.deleteRow(posicion);
-            })
-        })
-    })
 });
+
+function botonesEliminar()
+{
+    var BTNS_ACTUALIZADOS = document.getElementsByName('eliminarRow');
+    
+    BTNS_ACTUALIZADOS[BTNS_ACTUALIZADOS.length-1].addEventListener('click', (btnElim) =>{
+        OBJ_TABLA.deleteRow(btnElim.target.parentNode.parentNode.rowIndex);
+    });
+};
