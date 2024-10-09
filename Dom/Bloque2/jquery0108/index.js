@@ -11,20 +11,17 @@
  * @name = Variables de inicio.
  */
 
-const BTN_INSERT = document.getElementById('btnAdd');
-const OBJ_INPUTTEXT = document.getElementById('texto');
-const OBJ_PARRAFO = document.getElementById('parrafo');
+const BTN_INSERT = $('#btnAdd');
+const OBJ_INPUTTEXT = $('#texto');
+const OBJ_PARRAFO = $('#parrafo');
 
 /**
  * @name = Main.
  */
 
-window.addEventListener('load', (e) => {
-   
-    BTN_INSERT.addEventListener('click', () => {
-        var textAnterior = OBJ_PARRAFO.value;
-        OBJ_PARRAFO.innerText = textAnterior+ OBJ_INPUTTEXT.value;
-        OBJ_INPUTTEXT.value = "";
+$(window).on('load', function() {
+    BTN_INSERT.on('click' , function() {
+        OBJ_PARRAFO.append('\n'+OBJ_INPUTTEXT.val());
+        OBJ_INPUTTEXT.val("");
     });
-
 });

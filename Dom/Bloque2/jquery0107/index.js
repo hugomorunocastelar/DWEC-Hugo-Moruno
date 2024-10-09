@@ -11,29 +11,29 @@
  * @name = Variables de inicio.
  */
 
-const BTN_INSERT = document.getElementById('insert');
-const OBJ_FRUTA = document.getElementById('fruta');
-const OBJ_COLOR = document.getElementById('color');
-const OBJ_TABLA = document.getElementById('texto');
-const BTNS_ELIMINAR = document.getElementsByName('eliminarRow');
+const BTN_INSERT = $('#insert');
+const OBJ_FRUTA = $('#fruta');
+const OBJ_COLOR = $('#color');
+const OBJ_TABLA = $('#texto');
+const BTNS_ELIMINAR = $('button[name="eliminarRow"]');
 
 /**
  * @name = Main.
  */
 
-window.addEventListener('load', (e) => {
-    BTN_INSERT.addEventListener('click' , (tab) => {
-        var row = OBJ_TABLA.insertRow();
-        row.insertCell(0).innerHTML = OBJ_FRUTA.value;
-        row.insertCell(1).innerHTML = OBJ_COLOR.value;
-        row.insertCell(2).innerHTML = 
-        "<button type='button' name='eliminarRow' id='eliminarRow'>Eliminar</button>";
+$(window).on('load', function() {
+    BTN_INSERT.on('click' , function() {
+        OBJ_TABLA.append(`<tr>
+                            <td>${OBJ_FRUTA.val()}</td>
+                            <td>${OBJ_COLOR.val()}</td>
+                            <td><button type='button' name='eliminarRow' id='eliminarRow'>Eliminar</button></td>
+                        </tr>`);
         botonesEliminar();
     });
 
-    BTNS_ELIMINAR.forEach((btnElim) => {
-        btnElim.addEventListener('click', () =>{
-            OBJ_TABLA.deleteRow(btnElim.parentNode.parentNode.rowIndex);
+    BTNS_ELIMINAR.each(function() {
+        $(this).on('click', function() {
+            $(this).closest('tr').remove();
         });
     });
         
@@ -41,9 +41,7 @@ window.addEventListener('load', (e) => {
 
 function botonesEliminar()
 {
-    var BTNS_ACTUALIZADOS = document.getElementsByName('eliminarRow');
-    
-    BTNS_ACTUALIZADOS[BTNS_ACTUALIZADOS.length-1].addEventListener('click', (btnElim) =>{
-        OBJ_TABLA.deleteRow(btnElim.target.parentNode.parentNode.rowIndex);
+    $('button[name="eliminarRow"]').last().on('click', function() {
+        $(this).closest('tr').remove();
     });
 };

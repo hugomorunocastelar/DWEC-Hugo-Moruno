@@ -4,7 +4,7 @@
 /**
  * @author = Hugo Moruno Parra
  * 
- * @fecha = '04/10/2024'
+ * @fecha = '09/10/2024'
  */
 
 /**
@@ -20,7 +20,7 @@ var name_find = false;
  * @name = Main.
  */
 
-window.addEventListener('load', (e) => {
+$(window).on('load', function() {
     NUM.on('blur', onNumBlur);
     NAME.on('blur', onNameBlur);
     $('#enviar').on('click', onEnviarClick);
@@ -30,7 +30,7 @@ window.addEventListener('load', (e) => {
  * @name = Gestores de eventos.
  */
 
-function onNumBlur(e){
+function onNumBlur(){
     if (!Number(NUM.val()))
     {
         NUM.css('background-color', 'lightcoral')
@@ -38,12 +38,12 @@ function onNumBlur(e){
     }
     else
     {
-        NAME.css('background-color', 'lightgreen')
+        NUM.css('background-color', 'lightgreen')
         num_find = true;
     }
 }
 
-function onNameBlur(e){
+function onNameBlur(){
     if(NAME.val().trim() == '')
     {
         NAME.css('background-color', 'lightcoral')
@@ -59,7 +59,7 @@ function onNameBlur(e){
 function onEnviarClick(e){
     if(name_find && num_find)
     {
-        //haz un submit o algo coño
+        //haz un submit o algo
     }
     else
     {

@@ -4,7 +4,7 @@
 /**
  * @author = Hugo Moruno Parra
  * 
- * @fecha = '04/10/2024'
+ * @fecha = '09/10/2024'
  */
 
 /**
@@ -20,7 +20,7 @@ var name_find = false;
  * @name = Main.
  */
 
-window.addEventListener('load', (e) => {
+$(window).on('load', function() {
     NUM.on('blur', onNumBlur);
     NAME.on('blur', onNameBlur);
     $('#enviar').on('click', onEnviarClick);
@@ -38,7 +38,7 @@ function onNumBlur(e){
     }
     else
     {
-        NAME.css('background-color', 'lightgreen')
+        NUM.css('background-color', 'lightgreen')
         num_find = true;
     }
 }

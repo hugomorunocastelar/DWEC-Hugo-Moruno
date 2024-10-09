@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="formulario.css">
+    <script type="module" src="formulario.mjs" defer></script>
+    <script type="module" src="formulario-validaciones.mjs" defer></script>
+</head>
+<body>
+    <main>
+        <h1>Formulario</h1>
+        <form mathod="post" action="#">
+            <p>Nombre</p>
+            <input type="text" placeholder="Nombre" id="Nombre">
+            <p>Apellidos</p>
+            <input type="text" placeholder="Apellidos" id="Apellidos">            
+            <p>DNI</p>
+            <input type="text" placeholder="DNI" id="Dni">
+            <p>Email</p>
+            <input type="email" placeholder="Email" id="Email">
+            <p>Contraseña</p>
+            <input type="password" placeholder="Contraseña" id="Passwd">
+            <p>Repetir Contraseña</p>
+            <input type="password" placeholder="Repetir Contraseña" id="Passwdrep">
+            <div class="botones">
+                <button id="limpiar">
+                    <p>Limpiar</p>
+                    <img src="./img/clean.png" alt="">
+                </button>
+                <div id="enviar">
+                    <input type="submit"><img src="./img/send.png" alt="">
+                </div>
+            </div>  
+        </form>
+    </main>
+</body>
+</html>
