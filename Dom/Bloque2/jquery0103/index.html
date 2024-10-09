@@ -8,14 +8,18 @@
     <script src="https://code.jquery.com/jquery-3.7.1.slim.js" 
             integrity="sha256-UgvvN8vBkgO0luPSUl2s8TIlOSYRoGFAX4jlCIm9Adc=" 
             crossorigin="anonymous" defer></script>
-    <script src="index.js" defer></script>
+    <script  type="module" src="index.js" defer></script>
 </head>
 <body>
-    <form method="get" action="#">
-        <h1>Formulario</h1>
-        <input type="text" name="nombre">
-        <input type="number" name="numero">
-        <input type="submit" value="Enviar" id="enviar">
-    </form>
+    <div>
+        <div class="botones">
+            <input type="button" value="Punto Equipo A" id="btnA">
+            <input type="button" value="Punto Equipo B" id="btnB">
+            <input type="button" value="Tarjeta Amarilla" id="btnT">
+        </div>
+        <div class="texto">
+            <textarea id="textArea"></textarea>
+        </div>
+    </div>
 </body>
 </html>
