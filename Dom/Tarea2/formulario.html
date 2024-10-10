@@ -11,27 +11,34 @@
 <body>
     <main>
         <h1>Formulario</h1>
-        <form mathod="post" action="#">
+        <form mathod="post" action="#" id="formulario">
             <p>Nombre</p>
             <input type="text" placeholder="Nombre" id="Nombre">
+            <div class="info" id="info-Nombre">Nombre</div>
             <p>Apellidos</p>
-            <input type="text" placeholder="Apellidos" id="Apellidos">            
+            <input type="text" placeholder="Apellidos" id="Apellidos">
+            <div class="info" id="info-Nombre">Apellidos</div>     
             <p>DNI</p>
             <input type="text" placeholder="DNI" id="Dni">
+            <div class="info" id="info-Nombre">Formato: 00000000X</div>
             <p>Email</p>
             <input type="email" placeholder="Email" id="Email">
+            <div class="info" id="info-Nombre">Formato: ejemplo@ejemplo.ej</div>
             <p>Contraseña</p>
             <input type="password" placeholder="Contraseña" id="Passwd">
+            <div class="info" id="info-Nombre">Formato: Mínimo 8 carácteres, máximo 20.</div>
             <p>Repetir Contraseña</p>
             <input type="password" placeholder="Repetir Contraseña" id="Passwdrep">
+            <div class="info" id="info-Nombre">Repite la contraseña escrita anteriormente.</div>
             <div class="botones">
                 <button id="limpiar">
                     <p>Limpiar</p>
                     <img src="./img/clean.png" alt="">
                 </button>
-                <div id="enviar">
-                    <input type="submit"><img src="./img/send.png" alt="">
-                </div>
+                <button type="submit" id="enviar"> 
+                    <p>Enviar</p>
+                    <img src="./img/send.png" alt="">
+                </button>
             </div>  
         </form>
     </main>

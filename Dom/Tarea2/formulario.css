@@ -12,17 +12,9 @@ body
     background-position: center;
     background-size: cover;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-}
-h1
-{
-    background-color: rgb(198, 255, 252);
-    padding: 5px 20px;
-    margin: 0px 0px 20px 0px ;
-    border: 1px solid #60c5ff;
-    border-radius: 5px;
-    text-align: center;
 }
 main
 {
@@ -35,6 +27,15 @@ main
     border: 1px solid #929292;
     background-color: rgb(181, 250, 255, 0.5);
     box-shadow: 0px 50px 50px 10px rgba(0,0,0,0.75);
+}
+h1
+{
+    background-color: rgb(198, 255, 252);
+    padding: 5px 20px;
+    margin: 0px 0px 20px 0px ;
+    border: 1px solid #60c5ff;
+    border-radius: 5px;
+    text-align: center;
 }
 form
 {
@@ -132,4 +133,19 @@ form > p
     border: none;
     color: inherit;
     font-size: inherit;
+}
+.info {
+    display: none;
+    position: static;
+    background-color: #f0f0f0;
+    border: 1px solid #000;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    font-size: 12px;
+    max-width: 200px;
+    z-index: 100;
+}
+input:focus + .info-box {
+    display: inline-flex;
 }
