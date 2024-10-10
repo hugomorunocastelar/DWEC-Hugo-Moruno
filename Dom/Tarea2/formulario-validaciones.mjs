@@ -26,6 +26,11 @@ const OBJ_PASSWDREP = document.getElementById('Passwdrep');
  * @name = Funciones de validación.
  */
 
+
+
+/**
+ * @name = Funciones de utilidad.
+ */
 function limpiarFormulario()
 {
     OBJ_NOMBRE.value = "";
@@ -40,6 +45,34 @@ function infoCampos(campo, mostrar)
 {
     if (mostrar)
     {
-        console.log(campo.parentNode.target);
+        var infoDiv = document.createElement('div');
+        infoDiv.className = 'info';
+        infoDiv.id = 'info';
+        switch (campo.target.id)
+        {
+            case 'Nombre':
+                infoDiv.textContent = 'Nombre'; 
+            break;
+            case 'Apellidos':
+                infoDiv.textContent = 'Apellidos'; 
+            break;
+            case 'Dni':
+                infoDiv.textContent = 'Dni'; 
+            break;
+            case 'Email':
+                infoDiv.textContent = 'Email'; 
+            break;
+            case 'Passwd':
+                infoDiv.textContent = 'Passwd'; 
+            break;
+            case 'Passwdrep':
+                infoDiv.textContent = 'Passwdrep'; 
+            break;
+        }
+        campo.target.parentNode.appendChild(infoDiv);
+    }
+    else 
+    {
+        campo.target.parentNode.removeChild(campo.target.parentNode.lastChild)
     }
 }

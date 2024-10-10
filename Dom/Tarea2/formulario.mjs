@@ -23,13 +23,28 @@ window.addEventListener('load', () => {
     
     BTN_LIMPIAR.addEventListener('click', validaciones.limpiarFormulario);
 
+    
+
+    Array.from(OBJ_CAMPOSFORM).forEach((campoForm) => {
+        campoForm.addEventListener('focus', (campo) => {
+            validaciones.infoCampos(campo, true);
+        });    
+
+        campoForm.addEventListener('blur', (campo) => {
+            validaciones.infoCampos(campo, false);
+        });
+
+        campoForm.addEventListener('input', (campo) => {
+            validaciones.validarCampo(campo);
+        });
+    });
+    
     FORM.addEventListener('submit', (form) => {
 
-        if (validaciones.validarFormulario > 0)
+        if (validaciones.errores > 0)
         {
-            validaciones.aviso;
-            validaciones.marcarCampos;
             form.preventDefault();
+            validaciones.errorAlEnviar;
         }
         else
         {
@@ -37,15 +52,5 @@ window.addEventListener('load', () => {
         }
     });
 
-    Array.from(OBJ_CAMPOSFORM).forEach((campoForm) => {
-        campoForm.addEventListener('focus', (campo) => {
-            validaciones.infoCampos(campo, true);
-        })     
-
-        campoForm.addEventListener('blur', (campo) => {
-            validaciones.infoCampos(campo, false);
-        })
-    });
-    
 });
 

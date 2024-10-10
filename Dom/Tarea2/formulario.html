@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Formulario</title>
+    <link rel="shortcut icon" href="./img/contact-form.ico" type="image/x-icon">
     <link rel="stylesheet" href="formulario.css">
     <script type="module" src="formulario.mjs" defer></script>
     <script type="module" src="formulario-validaciones.mjs" defer></script>
@@ -13,23 +14,29 @@
         <h1>Formulario</h1>
         <form mathod="post" action="#" id="formulario">
             <p>Nombre</p>
-            <input type="text" placeholder="Nombre" id="Nombre">
-            <div class="info" id="info-Nombre">Nombre</div>
+            <div id="campoForm">
+                <input type="text" placeholder="Nombre" id="Nombre">
+            </div>
             <p>Apellidos</p>
-            <input type="text" placeholder="Apellidos" id="Apellidos">
-            <div class="info" id="info-Nombre">Apellidos</div>     
+            <div id="campoForm">
+                <input type="text" placeholder="Apellidos" id="Apellidos">
+            </div>
             <p>DNI</p>
-            <input type="text" placeholder="DNI" id="Dni">
-            <div class="info" id="info-Nombre">Formato: 00000000X</div>
+            <div id="campoForm">
+                <input type="text" placeholder="DNI" id="Dni">
+            </div>
             <p>Email</p>
-            <input type="email" placeholder="Email" id="Email">
-            <div class="info" id="info-Nombre">Formato: ejemplo@ejemplo.ej</div>
+            <div id="campoForm">
+                <input type="email" placeholder="Email" id="Email">
+            </div>
             <p>Contraseña</p>
-            <input type="password" placeholder="Contraseña" id="Passwd">
-            <div class="info" id="info-Nombre">Formato: Mínimo 8 carácteres, máximo 20.</div>
+            <div id="campoForm">
+                <input type="password" placeholder="Contraseña" id="Passwd">
+            </div>
             <p>Repetir Contraseña</p>
-            <input type="password" placeholder="Repetir Contraseña" id="Passwdrep">
-            <div class="info" id="info-Nombre">Repite la contraseña escrita anteriormente.</div>
+            <div id="campoForm">
+                <input type="password" placeholder="Repetir Contraseña" id="Passwdrep">
+            </div>
             <div class="botones">
                 <button id="limpiar">
                     <p>Limpiar</p>
