@@ -15,8 +15,8 @@ export
     anadirFicha,
     reiniciar,
     siguienteFicha,
-    turno,
-    inicio
+    inicio,
+    turno
 };
 
 /**
@@ -28,18 +28,26 @@ const OBJS_CASILLAS = $('main>#tablero>div');
 const OBJ_SIGUIENTEFICHA = $('main>section>div>#next');
 
 /**
- * 
+ * Clase turno
  */
-class turno{
+class turno
+{
     #numero;
-    constructor(){
+    constructor()
+    {
         this.#numero = 0;
     }
-    anadirTurno() {
+    anadirTurno() 
+    {
         this.#numero++;
         siguienteFicha(this.#numero);
     }
-    turno() {
+    clearTurno()
+    {
+        this.#numero = 0;
+    }
+    turno() 
+    {
         return this.#numero;
     }
 }
@@ -60,6 +68,7 @@ function inicio()
     initDiv.append(initH1);
     initDiv.append(initParr);
     OBJ_PANTINFO.append(initDiv);
+    siguienteFicha(0);
 }
 
 function siguienteFicha(turno)
@@ -68,13 +77,24 @@ function siguienteFicha(turno)
     var imgO = '<img src="./img/circulo.png" alt="circulo">';
     var imgX = '<img src="./img/equis.png" alt="equis">';
 
-    if(turno % 2 == 0)
+    if (turno < 6) 
     {
-        OBJ_SIGUIENTEFICHA.append(imgX);
-    }
-    else
-    {
-        OBJ_SIGUIENTEFICHA.append(imgO);
+        if(turno % 2 == 0)
+        {
+            if (OBJ_SIGUIENTEFICHA.first().html() != '')
+            {
+                OBJ_SIGUIENTEFICHA[0].childNodes[0].remove();
+            }
+            OBJ_SIGUIENTEFICHA.append(imgX);
+        }
+        else
+        {
+            if (OBJ_SIGUIENTEFICHA.first().html() != '')
+            {
+                OBJ_SIGUIENTEFICHA[0].childNodes[0].remove();
+            }
+            OBJ_SIGUIENTEFICHA.append(imgO);
+        }
     }
 }
 
@@ -114,5 +134,6 @@ function reiniciar() {
         {
             div.childNodes[0].remove();
         }
-    })
+    });
+    siguienteFicha(0);
 }

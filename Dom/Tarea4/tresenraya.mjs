@@ -29,7 +29,7 @@ const OBJS_CASILLAS = $('main>#tablero>div');
 
 $(document).ready(() => {
 
-    //utils.inicio();
+    utils.inicio();
 
     OBJS_CASILLAS.each(function(){
         $(this).on('click', function() {
@@ -39,6 +39,7 @@ $(document).ready(() => {
 
     BTN_REINICIAR.on('click', () => {
         utils.reiniciar();
+        TURNO.clearTurno();
     });
     
     BTN_PANTINFO.on('click', () => {
