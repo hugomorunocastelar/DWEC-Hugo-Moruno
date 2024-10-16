@@ -6,6 +6,10 @@
  * @fecha = '15/10/2024'
  */
 
+/**
+ * Componentes del archivo principal que se importan.
+ */
+
 import * as main from "./tresenraya.mjs";
 
 /**
@@ -30,6 +34,9 @@ const OBJ_PANTINFO = $('#pantallaInfo');
 const OBJS_CASILLAS = $('main>#tablero>div');
 const OBJ_SIGUIENTEFICHA = $('main>section>div>#next');
 const OBJS_CONTADORES = $('footer>div>div');
+/**
+ * Array de posibilidades de victoria.
+ */
 const PATRONES_VICTORIA = 
 [
     ['upleft','upmid', 'upright'],
@@ -53,15 +60,18 @@ class turno
     {
         this.#numero = 0;
     }
+    //Añade un turno al juego y coloca en el cuadro de siguiente ficha la correspondiente.
     anadirTurno() 
     {
         this.#numero++;
         siguienteFicha(this.#numero);
     }
+    //Settea el turno a 0.
     clearTurno()
     {
         this.#numero = 0;
     }
+    //Consigue el turno.
     turno() 
     {
         return this.#numero;
@@ -72,9 +82,14 @@ class turno
  * @name = Funciones de validación.
  */
 
+/**
+ * Funciones que se ejecutan al iniciar la página, muestra un cuadro de información y un botón.
+ */
 function inicio() 
 {
+    //Muestra la pantalla de info.
     OBJ_PANTINFO.addClass('mostrar');
+    //Creo el panel de información.
     var initDiv = $('<div></div>');
     var initH1 = $('<h1></h1>');
     var initParr = $('<p></p>');
@@ -84,14 +99,22 @@ function inicio()
     initDiv.append(initH1);
     initDiv.append(initParr);
     OBJ_PANTINFO.append(initDiv);
+    //Muestra la primera 'siguiente ficha' de la partida.
     siguienteFicha(0);
 }
 
+
+/**
+ * Muestra la siguiente ficha que se va a colocar en el tablero.
+ * @param {*} turno 
+ */
 function siguienteFicha(turno)
 {
+    //Imágenes
     var imgO = '<img src="./img/circulo.png" alt="circulo">';
     var imgX = '<img src="./img/equis.png" alt="equis">';
 
+    //Se cambia la siguiente ficha según el turno.
     if(turno % 2 == 0)
     {
         if (OBJ_SIGUIENTEFICHA.first().html() != '')
@@ -110,11 +133,21 @@ function siguienteFicha(turno)
     }
 }
 
+
+/**
+ * Añade una ficha a una casilla si ésta está vacía. Según el turno una u otra.
+ * 
+ * @param {*} casilla 
+ * @param {*} turno 
+ * @returns 
+ */
 function anadirFicha(casilla, turno)
 {
+    //Imágenes
     var imgO = '<img src="./img/circulo.png" alt="circulo">';
     var imgX = '<img src="./img/equis.png" alt="equis">';
 
+    //Añade la ficha a la casilla si ésta está vacía y comprueba la situación de la partida.
     if (!(casilla.first().html() != ''))
     {
         if(turno % 2 == 0)
@@ -143,6 +176,11 @@ function anadirFicha(casilla, turno)
     return false;
 }
 
+/**
+ * Comprueba que el tablero actual tenga o no condición de victoria.
+ * @returns Array de Booleans y signo del ganador.
+ */
+
 function comprobarVictoria()
 {
     var victoria = [];
@@ -153,6 +191,7 @@ function comprobarVictoria()
         var segunda = null;
         var tercera = null;
         var correcto = true;
+        //Algoritmo de comprobación de la victoria.
         patron.forEach((casilla) => {
             if (correcto == true)
             {
@@ -188,17 +227,24 @@ function comprobarVictoria()
     return victoria;
 }
 
+/**
+ * Una vez comprobada la victoria se crea la pantalla de victoria, se muestra y se actualizan los datos.
+ * 
+ * @param {*} signo 
+ */
 function victoria(signo)
 {
+    //Creo el panel de victoria.
     var initDiv = $('<div></div>');
     var initH1 = $('<h1></h1>');
     var initParr = $('<p></p>');
     initH1.text('¡Victoria!');
-    initParr.text(signo);
+    initParr.text('El ganador de la partida ha sido: '+signo);
     initDiv.addClass('divInicio');
     initDiv.append(initH1);
     initDiv.append(initParr);
     OBJ_PANTINFO.append(initDiv);
+    //Según el objeto que devuelva victoria(), se añade una partida ganada a uno u otro.
     switch (signo)
     {
         case 'equis': 
@@ -212,10 +258,15 @@ function victoria(signo)
     }
     var contPart = OBJS_CONTADORES[0].children[1];
     contPart.innerText = parseInt(contPart.innerText) + 1;
+    //Aquí se reincia el estado del tablero.
     reiniciar();
     main.TURNO.clearTurno();
     OBJ_PANTINFO.addClass('mostrar');
 }
+
+/**
+ * Reinicia las casillas y el cuadrado de siguiente ficha.
+ */
 
 function reiniciar() 
 { 
@@ -229,6 +280,9 @@ function reiniciar()
     siguienteFicha(0);
 }
 
+/**
+ * Pone los contadores del footer a 0.
+ */
 function limpiarContadores()
 {
     OBJS_CONTADORES.each(function(){
