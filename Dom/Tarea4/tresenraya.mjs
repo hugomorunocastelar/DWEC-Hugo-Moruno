@@ -29,7 +29,7 @@ const OBJS_CASILLAS = $('main>#tablero>div');
 
 $(document).ready(() => {
 
-    //utils.inicio();
+    utils.inicio();
 
     OBJS_CASILLAS.each(function(){
         $(this).on('click', function() {
