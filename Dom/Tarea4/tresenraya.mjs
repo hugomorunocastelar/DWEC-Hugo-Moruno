@@ -16,7 +16,7 @@ import * as utils from "./utils.mjs";
  * Variables de objetos del documento.
  */
 
-const TURNO = new utils.turno();
+export const TURNO = new utils.turno();
 
 const BTN_PANTINFO = $('#pantallaInfoButton');
 const BTN_REINICIAR = $('#reiniciarJuego');
@@ -29,7 +29,7 @@ const OBJS_CASILLAS = $('main>#tablero>div');
 
 $(document).ready(() => {
 
-    utils.inicio();
+    //utils.inicio();
 
     OBJS_CASILLAS.each(function(){
         $(this).on('click', function() {
@@ -39,6 +39,7 @@ $(document).ready(() => {
 
     BTN_REINICIAR.on('click', () => {
         utils.reiniciar();
+        utils.limpiarContadores();
         TURNO.clearTurno();
     });
     
