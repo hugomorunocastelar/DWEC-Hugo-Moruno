@@ -54,7 +54,7 @@ var validadores =
     'noVacio': /^.+$/,
     'noNum': /^[a-zA-ZÁ-ÿá-ÿ]+$/,
     'dni': /^\d{8}[A-Z]$/,
-    'email': /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]$/,
+    'email': /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]+$/,
     'de3a20': /^.{3,20}$/,
     'de3a40': /^.{3,40}$/,
     'de8a20': /^.{8,20}$/
@@ -217,11 +217,17 @@ function infoCampos(campo, mostrar)
     } 
     else 
     {
-        $(campo).parent().find('.info').remove();
-        if (errores.length > 0) 
-        {
-            $(campo).focus();
-        }
+        $(campo).parent().find('div').remove();
+        
+        //Esta línea está comentada porque el método focus de Jquery da problemas con la eliminación de los
+        //objetos de información (div). De todos modos, es un requisito del ejercicio que tal y como he 
+        //desarrollado yo la solución. da problemas.
+        /*
+            if (errores.length > 0) 
+            {
+                $(campo).focus();   
+            }
+        */
     }
 }
 
