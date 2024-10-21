@@ -1,14 +1,38 @@
+/**
+ * @author = Hugo Moruno Parra
+ * 
+ * @fecha = ''
+ */
+
+/**
+ * @name = Variables de inicio.
+ */
+
+const WORKSPACE = $('#workspace');
+const ENLACES = $('a[pagina="si"]');
+
+/**
+ * @name = Main.
+ */
 
 $(window).on('load', function(){
 
-    $('#workspace').load('./html/recetas.html');
-    function recetas()
+    WORKSPACE.load('./html/recetas.html');
+    ENLACES.each(function()
     {
-        $('#workspace').load('./html/recetas.html');
+        $(this).on('click', function(e) {
+            loadPage($(this).attr('enlace'));
+        });
     }
-    function ingredientes()
-    {
-        $('#workspace').load('./html/ingredientes.html');
-    }
+)
+
 });
 
+/**
+ * Funciones
+ */
+
+function loadPage(url)
+{
+    WORKSPACE.load(url);
+}
