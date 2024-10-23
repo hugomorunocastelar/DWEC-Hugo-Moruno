@@ -20,9 +20,11 @@ var resultado = 0;
 
 window.addEventListener('load', () => {
 
+    limpiarInputs(true);
+
     BTN_SUMAR[0].addEventListener('click', () => {
         
-        limpiarInputs();
+        limpiarInputs(true);
         
     });
 
@@ -30,7 +32,8 @@ window.addEventListener('load', () => {
         
         sumarInputs();
         mostrarResultado();
-        
+        limpiarInputs(false);
+
     });
     
 });
@@ -42,7 +45,7 @@ window.addEventListener('load', () => {
 function sumarInputs()
 {
     for(var i =0; i <10 ; i++){
-        resultado = resultado += parseInt(OBJS_INPUTS[i].value);
+        resultado = resultado += Number(OBJS_INPUTS[i].value);
     }
 }
 
@@ -51,9 +54,15 @@ function mostrarResultado()
     OBJS_INPUTS[10].value = resultado;
 }
 
-function limpiarInputs()
+function limpiarInputs(resul)
 {
-    for(var i =0; i <=10 ; i++){
+    for(var i =0; i <10 ; i++)
+    {
         OBJS_INPUTS[i].value = 0;
+        resultado = 0;
+    }
+    if(resul)
+    {
+        OBJS_INPUTS[10].value = 0;
     }
 }
